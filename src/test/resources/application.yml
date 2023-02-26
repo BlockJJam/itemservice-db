@@ -10,3 +10,19 @@ logging:
     org:
       springframework:
         jdbc: debug
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+    hello:
+      itemservice:
+        repository:
+          mybatis: trace
+
+
+mybatis:
+  type-aliases-package: hello.itemservice.domain # mybatis에서 타입정보를 사용하려면 xml에 패키지 명을 일일이 적어야 되는데 이를 적어도 되지 않도록 만들어주는 설정
+  configuration:
+    map-underscore-to-camel-case: true # underscore(디비) -> Camel(객체)
